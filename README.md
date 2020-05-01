@@ -4,4 +4,5 @@ This is the information of test cases and bugs for article
 
 For more infomations, please refer 
 
-*infos_testcase_bugs.md*
+*infos_testcases&bugs.md*
+
