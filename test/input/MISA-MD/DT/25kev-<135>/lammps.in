@@ -1,0 +1,114 @@
+variable latparam equal  2.8553  
+variable CasTemp equal 600.0
+variable PKAvx equal 496.416
+variable PKAvy equal 1489.247
+variable PKAvz equal 2482.0786
+# ------- initialize Simulation ---------
+echo both
+units metal  # see 'metal' units
+dimension 3
+boundary p p p
+atom_style atomic 
+
+neighbor 1.0 bin
+neigh_modify delay 0 every 1 check yes
+
+# ------- creat atoms / geometry -----
+lattice  bcc ${latparam}
+region mybox block 0 80 0 80 0 80
+create_box 1 mybox
+create_atoms 1 box 
+mass 1 55.847
+region rPKA sphere 40 40 40 0.2
+
+# --- define interatomic.potential
+pair_style eam/alloy
+pair_coeff * * FeCuNi.eam.alloy Fe
+
+# Group
+region rallatoms block INF INF INF INF INF INF
+#region rinterior block 2 78 2 78 2 78
+#region rexterior block 2 78 2 78 2 INF 
+region xrdown block 0 3 0 80 0 80
+group xdown region xrdown
+
+region xrup block 77 80 0 80 0 80
+group xup region xrup
+
+region yrdown block 0 80 0 3.0 0 80
+group ydown region yrdown
+
+region yrup block 0 80 77 80 0 80
+group yup region yrup
+
+region zrdown block 0 80 0 80 0 3.0
+group zdown region zrdown
+
+region zrup block 0 80 0 80 77 80
+group zup region zrup
+
+group exterior union xdown xup ydown yup zdown zup
+group interior subtract all exterior
+
+#group interior region rinterior
+#group exterior region rexterior
+group PKA region rPKA
+
+neigh_modify every 1 delay 0 check yes
+# ---- Initialization ------
+compute 1 all temp
+### compute 2 interior coord/atom 2.2
+### compute 3 interior ke/atom
+
+compute interT interior temp
+compute outerT exterior temp
+
+thermo 1000
+thermo_style custom step lx ly lz press pxx pyy pzz pe temp c_interT c_outerT
+
+minimize 1e-15 1e-15 10000 10000
+
+# ------ Equlibration ---------
+#reset_timestep 0
+#timestep 0.001
+velocity all create ${CasTemp} 3928459 mom yes
+fix 1 all npt temp ${CasTemp} ${CasTemp} 0.1 iso 0.0 0.0 1.0 drag 1 # relax in NPT to zero pressure at 600K
+run 1000
+unfix 1
+
+fix 1 all nve
+fix 2 exterior temp/rescale 1 600.0 600.0 0.5 1.0 region rexterior
+fix 3 interior temp/rescale 1 600.0 600.0 0.5 1.0 region rinterior
+
+timestep 0.001
+thermo 100
+run 10000
+
+unfix 3
+run 5000
+
+dump 1 all custom 40000 initial.dump id type x y z
+
+velocity PKA set ${PKAvx} ${PKAvy} ${PKAvz} units box
+#compute Epka PKA ke/atom
+
+timestep 0.0001
+thermo 20
+dump 2 all custom 1000 test_init_col.dump id type x y z 
+### dump 3 PKA custom 100 PKA_traj_init_col.dump id type x y z 
+run 10000
+
+timestep 0.0005
+#undump 1
+#undump 2
+#dump 4 all custom 100 test_inter_evolve.dump id type x y z 
+#dump 5 PKA custom 100 PKA_traj_inter_evolve.dump id type x y z 
+run 10000
+
+#undump 3
+#undump 4
+timestep 0.001
+#dump 6 all custom 100 test_inter_evolve.dump id type x y z 
+#dump 7 PKA custom 100 PKA_traj_inter_evolve.dump id type x y z 
+run 20000
+print 'ALL done'

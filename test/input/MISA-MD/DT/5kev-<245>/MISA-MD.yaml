@@ -1,0 +1,62 @@
+ranks: 512
+title: "Crystal-MD Configure File"
+version: "0.4.0"
+
+# for BCC struct
+simulation:
+  phasespace: [80, 80, 80]
+  cutoff_radius_factor: 1.96125
+  lattice_const: 2.85532
+  def_timesteps_length: 0.001
+
+potential:
+  type: "setfl"
+  file_path: "FeCuNi.eam.alloy"
+
+creation:
+  create_phase: true
+  create_t_set: 600.0
+  create_seed: 466953
+  alloy:
+    create_seed: 1024
+    ratio:
+      Fe: 97
+      Cu: 0
+      Ni: 0
+
+output:
+  dump:
+    atoms_dump_mode: "copy"
+    atoms_dump_file_path: "crystal_mdl.{}.out"
+    origin_dump_path: "crystal_mdl.origin.out"
+    atoms_dump_interval: 1000
+    by_frame: true
+  thermo:
+    interval: 20
+  logs:
+    logs_mode: "console"
+    logs_filename: ""
+stages:
+  - name: rescale
+    step_length: 0.001
+    steps: 1000
+    rescale:
+      t: 600
+      every_steps: 1
+
+  - name: collision
+    step_length: 0.0001
+    steps: 10000
+    set_v:
+      collision_step: 2
+      lat: [25, 25, 25, 0]
+      energy: 5000.0
+      direction: [2.0, 4.0, 5.0]
+
+  - name: relax
+    step_length: 0.0005
+    steps: 10000
+
+  - name: run
+    step_length: 0.001
+    steps: 20000

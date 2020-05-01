@@ -1,0 +1,4 @@
+maxClusterSize = 2500
+totalTime = 100000
+timeStep = 0.0125
+Cinit = 1.0e-7
