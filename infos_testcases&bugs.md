@@ -678,7 +678,9 @@ Adding new GhostAtom operation.
 
 ![屏幕快照 2020-04-28 下午4.25.47](/Users/wangxingwei/Desktop/BugInfo.assets/屏幕快照 2020-04-28 下午4.25.47.png)
 
-**Reason**:  Incorrect communication algorithm in ghost regions.
+**Reason**:  Incorrect communication algorithm in ghost regions. 
+
+To fix this bug, we should remove ghost inter atoms before each simulation time step and set atom's property 0 when receiving a new inter atom.
 
 
 
