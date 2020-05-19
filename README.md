@@ -1,4 +1,10 @@
-# Information of Test Cases and Bugs
+# The information of Test Cases and Bugs
+
+For a pdf version, please refer to the file *"the information of Test Cases and Bugs.pdf"*
+
+------
+
+
 
 ### 1. Programs
 
@@ -252,7 +258,7 @@
 
 ------
 
-Too many parameters, you can see it in "*test/input/ATHENA/Input information of ATHENA.docx*".
+Too many parameters, you can refer to the file "*./test/input/ATHENA/Input information of ATHENA.docx*".
 
 
 
@@ -575,13 +581,9 @@ Too many parameters, you can see it in "*test/input/ATHENA/Input information of 
 
 **Reason**: Substitute '-' with '0' may has a bug.
 
-##### B2: A negative number may be generated for ID of characteristic line
+**B2: A negative number may be generated for ID of characteristic line**
 
 ![image](https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/antmoc-b2.png)
-
-
-
-
 
 **Reason**: There may be no tracks under a specified azimuthal angle for a certain process, which would lead to a `0` when `getMyNum2DTracks()` was invoked. If it happens, `xy` evaluates to `-1`, cause a negative number.
 
