@@ -10,6 +10,8 @@
 
 **Geometry**: Geometric input files.
 
+**Global Primitives**: Supplemental geometry data file.
+
 **Materials**:  Material data files.
 
 **XS File Layout**: Material data structure file.
@@ -22,21 +24,25 @@
 
 **Num Polars**: The number of polars.
 
+**Polar Spacing**: Track spacing of the polar plane.
+
 **Global Refines**: Type of refines.
 
-**Segmentation**: Type of track segmentation.
-
 **Z Mesh**: Type of axial network.
-
-**Axial Zones**: Overlapping plane axial layer.
 
 **Quadrature**: Quadrature type.
 
 **Solver**: Solver type.
 
+**Keff Type**: Calculating k-eff using neutron balance or not.
+
 **Max Iterations**: Maximum number of iterations.
 
 **Tolerance**: Tolerance of convergence.
+
+**Segmentation**: Type of track segmentation.
+
+**Axial Zones**: Overlapping plane axial layer.
 
 
 
@@ -44,7 +50,7 @@
 
 ------
 
-**keff** : Effective value-added factors
+**keff** : Effective value-added factors.
 
 
 
@@ -53,6 +59,8 @@
 ##### Input:
 
 ------
+
+**[simulation]**
 
 **phasespace**:  the size of the simulate box, describing the number of lattices on each dimension.
 
@@ -64,17 +72,31 @@
 
 **timesteps_length**: time step.
 
+
+
+**[simulation.createphase]**
+
 **create_phase**: Reading atoms from a file or creating atoms.
 
 **create_t_set**: the initial temperature.
 
 **create_seed**: random seed.
 
+
+
+**[simulation.alloy]**
+
+**create_seed**: random seek for creating atoms in Fe-Cu-Ni alloy material
+
 **fe**:  the percentage of Fe.
 
 **cu**: the percentage of Cu.
 
 **ni**: the percentage of Ni.
+
+
+
+**[simulation.collision]**
 
 **collision_step**: a parameter of cascading collisions.
 
@@ -96,25 +118,25 @@
 
 **lattice_const**：lattice constant.
 
-**id**：atom id
+**id**：atom id.
 
-**step**：time step
+**step**：time step.
 
-**type**：atom type
+**type**：atom type.
 
-**inter_type**：inter-atom type
+**inter_type**：inter-atom type.
 
-**locate.x**：x coordinates
+**locate.x**：x coordinates.
 
-**locate.y**：y coordinates
+**locate.y**：y coordinates.
 
-**locate.z**：z coordinates
+**locate.z**：z coordinates.
 
-**v.x**：x-directional speed
+**v.x**：x-directional speed.
 
-**v.y**：x-directional speed
+**v.y**：x-directional speed.
 
-**v.z**：z-directional speed
+**v.z**：z-directional speed.
 
 
 
@@ -124,7 +146,7 @@
 
 ------
 
-**meshFile**:  mesh input file
+**meshFile**:  mesh input file.
 
 **meshType**:  a uniform or non-uniform mesh file.
 
@@ -132,11 +154,11 @@
 
 **debugRestart**: toggle restart from data file.
 
-**debugRestartFile**: name of file to restart from
+**debugRestartFile**: name of file to restart from.
 
-**numMaterials**: number of materials
+**numMaterials**: number of materials.
 
-**materialFile**: the material input file(s)
+**materialFile**: the material input file(s).
 
 **implantType**: Type of implantation ('Cascade' for cascades, 'FrenkelPair' for Frenkel pairs).
 
@@ -144,15 +166,15 @@
 
 **cascadeFile**: the cascade input file.
 
-**meshingType**: whether using adaptive meshing protocol or not
+**meshingType**: whether using adaptive meshing protocol or not.
 
 **implantDist**: whether implanting defects uniformly.
 
 **implantFile**: the data file containing non-uniform implantation profile.
 
-**temperature**: Temperature, in K
+**temperature**: Temperature, in K.
 
-**CuContent**: Initial content of Cu in iron
+**CuContent**: Initial content of Cu in iron.
 
 **annealTemp**: Annealing temperature, in K.
 
@@ -164,7 +186,7 @@
 
 **burgers**: dislocation loop burgers vector.
 
-**totalDPA**: total DPA in simulation
+**totalDPA**: total DPA in simulation.
 
 **annealTime**: total anneal time.
 
@@ -182,9 +204,7 @@
 
 **cascadeVolume**: volume of cascade, used for cascade-defect interactions.
 
-**numSims**: number of times to repeat simulatio.
-
-**fineLength**: Adaptive meshing parameters, the length of one cascade implantation element
+**fineLength**: Adaptive meshing parameters, the length of one cascade implantation element.
 
 **numxFine**: number of cascade elements in x-direction (fine mesh).
 
@@ -209,8 +229,11 @@
 ------
 
 **maxClusterSize** : the max cluster size during simulation.
+
 **totalTime** : simulation time.
+
 **timeStep** : time step.
+
 **Cinit** : the initial concentration of cluster.
 
 
@@ -333,12 +356,12 @@ Too many parameters, you can see it in "*test/input/ATHENA/Input information of 
 
 | Test ID         | Reference                                                    | Location                                                     |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| MISA-MD-T01     | Expert experience                                            | test/input/MISA-MD/DT/1kev-<135>/MISA-MD.yaml                |
-| MISA-MD-T02~T07 | derived from MISA-MD-T01, changing the variable of "energy" with "5000, 10000, 15000, ..., 30000" | test/input/MISA-MD/DT/${i}kev-<135>/MISA-MD.yaml, (i=5, 10, 15,..., 30) |
-| MISA-MD-T08     | derived from MISA-MD-T02, changing the variable of "direction" with [1,2,2] | test/input/MISA-MD/DT/5kev-<122>/MISA-MD>.yaml               |
-| MISA-MD-T09     | derived from MISA-MD-T02, changing the variable of "direction" with [2,3,5] | test/input/MISA-MD/DT/5kev-<235>/MISA-MD.yaml                |
-| MISA-MD-T10     | derived from MISA-MD-T02, changing the variable of "direction" with [2,4,5] | test/input/MISA-MD/DT/5kev-<245>/MISA-MD.yaml,               |
-| MISA-MD-T11     | derived from MISA-MD-T02, changing the variable of "direction" with [3,4,5] | test/input/MISA-MD/DT/5kev-<345>/MISA-MD.yaml                |
+| MISA-MD-T01     | Expert experience                                            | test/input/MISA-MD/DT/1kev-<135>/MISA-MD.toml                |
+| MISA-MD-T02~T07 | derived from MISA-MD-T01, changing the variable of "energy" with "5000, 10000, 15000, ..., 30000" | test/input/MISA-MD/DT/${i}kev-<135>/MISA-MD.toml, (i=5, 10, 15,..., 30) |
+| MISA-MD-T08     | derived from MISA-MD-T02, changing the variable of "direction" with [1,2,2] | test/input/MISA-MD/DT/5kev-<122>/MISA-MD>.toml               |
+| MISA-MD-T09     | derived from MISA-MD-T02, changing the variable of "direction" with [2,3,5] | test/input/MISA-MD/DT/5kev-<235>/MISA-MD.toml                |
+| MISA-MD-T10     | derived from MISA-MD-T02, changing the variable of "direction" with [2,4,5] | test/input/MISA-MD/DT/5kev-<245>/MISA-MD.toml,               |
+| MISA-MD-T11     | derived from MISA-MD-T02, changing the variable of "direction" with [3,4,5] | test/input/MISA-MD/DT/5kev-<345>/MISA-MD.toml                |
 
 ##### Differential testing
 
@@ -356,10 +379,10 @@ Too many parameters, you can see it in "*test/input/ATHENA/Input information of 
 
 | Test ID      | Reference         | Location                                               |
 | ------------ | ----------------- | ------------------------------------------------------ |
-| MISA-MD-PT01 | MISA-MD-T01       | test/input/MISA-MD/PT/5kev-<135>-80/MISA-MD.yaml       |
-| MISA-MD-PT02 | MISA-MD-T02       | test/input/MISA-MD/PT/5kev-<122>-80/MISA-MD.yaml       |
-| MISA-MD-PT03 | Expert experience | test/input/MISA-MD/PT/5kev-<135>-50/MISA-MD.yaml       |
-| MISA-MD-PT04 | Expert experience | test/input/MISA-MD/PT/5kev-<135>-80-Cu-Ni/MISA-MD.yaml |
+| MISA-MD-PT01 | MISA-MD-T01       | test/input/MISA-MD/PT/5kev-<135>-80/MISA-MD.toml       |
+| MISA-MD-PT02 | MISA-MD-T02       | test/input/MISA-MD/PT/5kev-<122>-80/MISA-MD.toml       |
+| MISA-MD-PT03 | Expert experience | test/input/MISA-MD/PT/5kev-<135>-50/MISA-MD.toml       |
+| MISA-MD-PT04 | Expert experience | test/input/MISA-MD/PT/5kev-<135>-80-Cu-Ni/MISA-MD.toml |
 
 ##### Metamorphic testing:
 
@@ -367,12 +390,12 @@ Too many parameters, you can see it in "*test/input/ATHENA/Input information of 
 | -------------- | ---------------------- | ------------------------------------------------------------ | ------------------------------------------- |
 | MISA-MD-MR4-G1 | MISA-MD-MR4-G1-T01~T07 | MISA-MD-T01~T07                                              |                                             |
 | MISA-MD-MR5-G1 | MISA-MD-MR5-G1-T01~T04 | derived from MISA-MD-T01, increasing the variable of "phasespace" for "[50,50,50], [60,60,60] ,... [80,80,80] |                                             |
-| MISA-MD-MR6-G1 | MISA-MD-MR6-G1-T01     | derived from MISA-MD-T01, increasing the variable of "Ni"    | test/input/MISA-MD/MT/MTGroup-Ni/test0.yaml |
-|                | MISA-MD-MR6-G1-T02     |                                                              | test/input/MISA-MD/MT/MTGroup-Ni/test1.yaml |
-|                | MISA-MD-MR6-G1-T03     |                                                              | test/input/MISA-MD/MT/MTGroup-Ni/test2.yaml |
-| MISA-MD-MR7-G1 | MISA-MD-MR6-G1-T01     | derived from MISA-MD-T01, increasing the variable of "Cu"    | test/input/MISA-MD/MT/MTGroup-Cu/test0.yaml |
-|                | MISA-MD-MR6-G1-T01     |                                                              | test/input/MISA-MD/MT/MTGroup-Cu/test1.yaml |
-|                | MISA-MD-MR6-G1-T01     |                                                              | test/input/MISA-MD/MT/MTGroup-Cu/test2.yaml |
+| MISA-MD-MR6-G1 | MISA-MD-MR6-G1-T01     | derived from MISA-MD-T01, increasing the variable of "Ni"    | test/input/MISA-MD/MT/MTGroup-Ni/test0.toml |
+|                | MISA-MD-MR6-G1-T02     |                                                              | test/input/MISA-MD/MT/MTGroup-Ni/test1.toml |
+|                | MISA-MD-MR6-G1-T03     |                                                              | test/input/MISA-MD/MT/MTGroup-Ni/test2.toml |
+| MISA-MD-MR7-G1 | MISA-MD-MR6-G1-T01     | derived from MISA-MD-T01, increasing the variable of "Cu"    | test/input/MISA-MD/MT/MTGroup-Cu/test0.toml |
+|                | MISA-MD-MR6-G1-T01     |                                                              | test/input/MISA-MD/MT/MTGroup-Cu/test1.toml |
+|                | MISA-MD-MR6-G1-T01     |                                                              | test/input/MISA-MD/MT/MTGroup-Cu/test2.toml |
 | MISA-MD-MR8-G1 | MISA-MD-MR8-G1-T01~T07 | MISA-MD-T01~T07                                              |                                             |
 
 | MTGroup ID     | Test ID                | Reference       | Location |
