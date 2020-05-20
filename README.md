@@ -4,15 +4,13 @@ For a pdf version, please refer to the file *"the information of Test Cases and 
 
 ------
 
-
-
 ### 1. Programs
+
+------
 
 #### a) ANT-MOC
 
 ##### Input：
-
-------
 
 **Geometry**: Geometric input files.
 
@@ -148,81 +146,45 @@ For a pdf version, please refer to the file *"the information of Test Cases and 
 
 #### c) MISA-SCD:
 
+------
+
 ##### Input:
 
+| Name                                    | Meaning                                                      |
+| --------------------------------------- | ------------------------------------------------------------ |
+| defectFile                              | The defect attributes file                                   |
+| meshFile                                | The mesh file                                                |
+| irradiationType                         | Type of irradiation (‘Cascade’ for neutron irradiation, ‘FrenkelPair’ for electron irradiation, ‘None’ for no irradiation) |
+| $\color{red}\textrm{implantScheme}$     | $\color{red}\textrm{Toggle between Monte Carlo defect implantation and explicit defect implantation}$ |
+| cascadeFile                             | The cascade defects file                                     |
+| implantType                             | Where  uniformly implanting defects.                         |
+| implantFile                             | The  data file containing non-uniform implantation profile.  |
+| grainBoundaries                         | Toggle  whether we are going to include the effect of grain boundaries. |
+| pointDefect                             | Toggle  whether point defects are allowed to move only.      |
+| temperature                             | Temperature  (K)                                             |
+| soluteConcentration                     | Initial  content of solute atoms (Cu) in iron.               |
+| $\color{red}\textrm{numVac}$            | $\color{red}\textrm{Initial number of vacancies in the simulation system.}$ |
+| dpaRate                                 | The  rate of DPA.                                            |
+| totalDPA                                | Radiation  enhanced factor for Cu.                           |
+| $\color{red}\textrm{annealTemperature}$ | $\color{red}\textrm{Annealing temperature (K).}$             |
+| $\color{red}\textrm{annealTime}$        | $\color{red}\textrm{Total anneal time.}$                     |
+| lattice                                 | The  lattice constant (nm).                                  |
+| burgers                                 | Dislocation  loop burgers vector (nm).                       |
+| reactionRadius                          | Reaction  distances (nm).                                    |
+| grainSize                               | Grain  size (nm).                                            |
+| dislocDensity                           | Dislocation  density ($$nm^{-2}$$).                          |
+| cascadeVolume                           | Volume  of cascade ($$nm^{3}$$) .                            |
+| $\color{red}\textrm{max3D}$             | $\color{red}\textrm{Maximum size for SIA defect to diffuse in 3D.}$ |
+| $\color{red}\textrm{numSims}$           | $\color{red}\textrm{Number of times to repeat simulation.}$  |
+| $\color{red}\textrm{totdatToggle}$      | $\color{red}\textrm{Toggle whether the total defects file is output . (The file  contains number of ever defect species, cluster number densities, average  cluster size, average radius of clusters and so on.)}$ |
+| $\color{red}\textrm{minSolute}$         | $\color{red}\textrm{The minimum size of solute clusters included in the statistics.}$ |
+| $\color{red}\textrm{minVoid}$           | $\color{red}\textrm{The minimum size of vacancy clusters included in the statistics.}$ |
+| $\color{red}\textrm{minLoop}$           | $\color{red}\textrm{The minimum size of SIA clusters included in the statistics.}$ |
+| $\color{red}\textrm{minVS}$             | $\color{red}\textrm{The minimum size of S_Vac clusters included in the statistics.}$ |
+
 ------
-
-**meshFile**:  mesh input file.
-
-**meshType**:  a uniform or non-uniform mesh file.
-
-**strainField**: Toggle for calculating defect diffusion interaction with strain field.
-
-**debugRestart**: toggle restart from data file.
-
-**debugRestartFile**: name of file to restart from.
-
-**numMaterials**: number of materials.
-
-**materialFile**: the material input file(s).
-
-**implantType**: Type of implantation ('Cascade' for cascades, 'FrenkelPair' for Frenkel pairs).
-
-**implantScheme**: Toggle Monte Carlo cascade introduction vs explicit cascade introduction (for better weak scaling).
-
-**cascadeFile**: the cascade input file.
-
-**meshingType**: whether using adaptive meshing protocol or not.
-
-**implantDist**: whether implanting defects uniformly.
-
-**implantFile**: the data file containing non-uniform implantation profile.
-
-**temperature**: Temperature, in K.
-
-**CuContent**: Initial content of Cu in iron.
-
-**annealTemp**: Annealing temperature, in K.
-
-**dpaRate**: the rate of dpa.
-
-**atomSize**: the size of atom.
-
-**firr**: Radiation enhanced factor.
-
-**burgers**: dislocation loop burgers vector.
-
-**totalDPA**: total DPA in simulation.
-
-**annealTime**: total anneal time.
-
-**grainBoundaries**: Toggle whether we are going to include the effect of grain boundaries (Removing defects that travel too far).
-
-**pointDefect**: Toggle whether point defects are allowed to move only.
-
-**grainSize**: Mean free path for interstitial clusters to travel before removal.
-
-**dislocDensity**: dislocation density.
-
-**impurityConc**: carbon impurity concentration (atomic fraction).
-
-**max3DInt**: maximum size for SIA defect to diffuse in 3D.
-
-**cascadeVolume**: volume of cascade, used for cascade-defect interactions.
-
-**fineLength**: Adaptive meshing parameters, the length of one cascade implantation element.
-
-**numxFine**: number of cascade elements in x-direction (fine mesh).
-
-**numyFine**: number of cascade elements in y-direction (fine mesh).
-
-**numzFine**: number of cascade elements in z-direction (fine mesh).
-
-
 
 ##### Output:
-
-------
 
 **CuCluster**: the number of Cu Cluster.
 
@@ -230,9 +192,9 @@ For a pdf version, please refer to the file *"the information of Test Cases and 
 
 #### d) MISA-ETD
 
-##### Input: 
-
 ------
+
+##### Input: 
 
 **maxClusterSize** : the max cluster size during simulation.
 
@@ -504,17 +466,17 @@ Too many parameters, you can refer to the file "*./test/input/ATHENA/Input infor
 | MISA-SCD-CT03 | Electron irradiation | Evolutionary Trends | Picture from literature |
 | MISA-SCD-CT04 | Neutron irradiation  | Evolutionary Trends | Picture from literature |
 
-**Electron irradiation**：
-
-![electron ](/Users/wangxingwei/Desktop/BugInfo.assets/electron -8249537.png)
 
 
+![image]([https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Electron%20irradiation-reference.png](https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Electron irradiation-reference.png))
 
-**Neutron irradiation**:
-
-![neurtron](/Users/wangxingwei/Desktop/BugInfo.assets/neurtron.png)
+Time (bottom axis) and dose (top axis) evolution of Cu precipitation kinetics in a Fe-1.34at.%Cu at 290 ◦C under electron irradiation . (a) Evolution of total Cu cluster number density. (b) Evolution of average Cu cluster radius.
 
 
+
+![image]([https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Neutron%20irradiation-reference.png](https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Neutron irradiation-reference.png))
+
+Time (bottom axis) and dose (top axis) evolution of Cu precipitation kinetics in a Fe-0.3at.%Cu at 300 ◦C under neutron irradiation . (a) Evolution of total Cu cluster number density. (b) Evolution of average Cu cluster radius.
 
 |    Test Id    | Description | Expected | Expected type           |
 | :-----------: | :---------: | :------: | ----------------------- |
@@ -522,32 +484,31 @@ Too many parameters, you can refer to the file "*./test/input/ATHENA/Input infor
 
 **Reference result**：
 
-<img src="/Users/wangxingwei/Desktop/BugInfo.assets/MISA-ETD-reference.png" alt="MISA-ETD-reference" style="zoom:50%;" />
+![image](https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/rt-reference.png)
+
+
 
 ##### b) Propertis
 
-| Property id | Definition                                                   |        Reason         |
-| ----------- | ------------------------------------------------------------ | :-------------------: |
-| P1          | The ID of any characteristic line must be unique             |    Implementation     |
-| P2          | The ID of any characteristic line must be a positive integer |    Implementation     |
-| P3          | The length of any characteristic line must be a positive integer |    Implementation     |
-| P4          | The ID of FSR must be unique                                 |    Implementation     |
-| P5          | The flux distribution must be geometrically symmetric        | Physics & Computation |
-| P6          | The ID of any molecule must be unique                        |    Implementation     |
-| P7          | The position and velocity of a molecule should not be NAN    |    Implementation     |
-| P8          | The position of a molecule must be within the simulation space |    Implementation     |
-| P9          | The action and the reaction force between any two molecules must be identical |        Physics        |
-
-| Property id | Definition                                                   |      Reason       |
-| :---------: | ------------------------------------------------------------ | :---------------: |
-|     P10     | The kinetic energy of the entire system must be conserved (equal to the input PKA energy) |      Physics      |
-|     P11     | The number of molecules should not change                    |      Physics      |
-|     P12     | Within two consecutive time steps, the change of the force exerted on a molecule should not be greater than ε, where ε = 20 | Domain knowledge  |
-|     P13     | ¬(Cu < 0∧V < 0∧SIA_m < 0∧SIA_im < 0)                         |    Computation    |
-|     P14     | ¬(SIA_m > 0∧SIA_im > 0)                                      |    Computation    |
-|     P15     | ¬((SIA_m > 0 v SIA_im > 0) ∧ V > 0 )                         |    Computation    |
-|     P16     | The pressure of the system should not change within the inner loop | Numeric algorithm |
-|     P17     | The result of the inner loop must converge                   | Numeric algorithm |
+| Program  | PID  | Description                                                  |        Reason         |
+| -------- | ---- | ------------------------------------------------------------ | :-------------------: |
+| ANT-MOC  | P1   | The ID of any characteristic line must be unique             |    Implementation     |
+|          | P2   | The ID of any characteristic line must be a positive integer |    Implementation     |
+|          | P3   | The length of any characteristic line must be a positive integer |    Implementation     |
+|          | P4   | The ID of FSR must be unique                                 |    Implementation     |
+|          | P5   | The flux distribution must be geometrically symmetric        | Physics & Computation |
+| MISA-MD  | P6   | The ID of any molecule must be unique                        |    Implementation     |
+|          | P7   | The position and velocity of a molecule should not be NAN    |    Implementation     |
+|          | P8   | The position of a molecule must be within the simulation space |    Implementation     |
+|          | P9   | The action and the reaction force between any two molecules must be identical |        Physics        |
+|          | P10  | The kinetic energy of the entire system must be conserved (equal to the input PKA energy) |        Physics        |
+|          | P11  | The number of molecules should not change                    |        Physics        |
+|          | P12  | Within two consecutive time steps, the change of the force exerted on a molecule should not be greater than ε, where ε = 20 |   Domain knowledge    |
+| MISA-SCD | P13  | ¬(Cu < 0∧V < 0∧SIA_m < 0∧SIA_im < 0)                         |      Computation      |
+|          | P14  | ¬(SIA_m > 0∧SIA_im > 0)                                      |      Computation      |
+|          | P15  | ¬((SIA_m > 0 v SIA_im > 0) ∧ V > 0 )                         |      Computation      |
+| ATHENA   | P16  | The pressure of the system should not change within the inner loop |   Numeric algorithm   |
+|          | P17  | The result of the inner loop must converge                   |   Numeric algorithm   |
 
 ##### c) MRs
 
@@ -558,8 +519,8 @@ Too many parameters, you can refer to the file "*./test/input/ATHENA/Input infor
 | MR3   | For a source test case i0, if follow-up test cases i1, i2,... are derived by gradually increasing the amount of polar angles, i.e., by densifying the grids, then keff(p(ik)) − keff(p(ik+1))<2×10, when k→+∞ | Computation |
 | MR4   | For a source test case i, if the follow-up test case i′ is derived from i by increasing the initial PKA, then T(p(i))<T(p(i′)), where T extracts the system temperature from the program output |   Physics   |
 | MR5   | For a source test case i, if the follow-up test case i′ is derived from i by increasing the simulation space, then T(p(i))>T(p(i′)) |   Physics   |
-| MR6   | For a source test case i, if the follow-up test case i′ is derived from i by increasing Ni content, then T(p(i))=T(p(i′)) |   Physics   |
-| MR7   | For a source test case i, if the follow-up test case i′ is derived from i by increasing Cu content, then T(p(i))=T(p(i′)) |   Physics   |
+| MR6   | For a source test case i, if the follow-up test case i′ is derived from i by increasing Ni content, then T(p(i))≠T(p(i′)) |   Physics   |
+| MR7   | For a source test case i, if the follow-up test case i′ is derived from i by increasing Cu content, then T(p(i))≠T(p(i′)) |   Physics   |
 | MR8   | For a source test case i, if the follow-up test case i′ is derived from i by increasing the initial PKA, then Fs(p(i))<Fs(p(i′)), where Fs extracts the amount of Frankel defects from the program output. |   Physics   |
 | MR9   | For a source test case i, if the follow-up test case i′ is derived from i by increasing the initial PKA, then Fp(p(i))<Fp(p(i′)), where Fp extracts the peak value of Frankel defects from the program output |   Physics   |
 
