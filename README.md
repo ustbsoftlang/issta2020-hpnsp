@@ -468,13 +468,13 @@ Too many parameters, you can refer to the file "*./test/input/ATHENA/Input infor
 
 
 
-![image]([https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Electron%20irradiation-reference.png](https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Electron irradiation-reference.png))
+![image](https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Electron-irradiation-reference.png)
 
 Time (bottom axis) and dose (top axis) evolution of Cu precipitation kinetics in a Fe-1.34at.%Cu at 290 ◦C under electron irradiation . (a) Evolution of total Cu cluster number density. (b) Evolution of average Cu cluster radius.
 
 
 
-![image]([https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Neutron%20irradiation-reference.png](https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Neutron irradiation-reference.png))
+![image](https://github.com/ustbsoftlang/issta2020-hpnsp/raw/master/TestCaseInfo.assets/Neutron-irradiation-reference.png)
 
 Time (bottom axis) and dose (top axis) evolution of Cu precipitation kinetics in a Fe-0.3at.%Cu at 300 ◦C under neutron irradiation . (a) Evolution of total Cu cluster number density. (b) Evolution of average Cu cluster radius.
 
