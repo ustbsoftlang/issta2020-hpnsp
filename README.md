@@ -88,37 +88,37 @@ Output:
 
 Input:
 
-| Name                                      | Meaning                                                      |
-| ----------------------------------------- | ------------------------------------------------------------ |
-| defectFile                                | The defect attributes file                                   |
-| meshFile                                  | The mesh file                                                |
-| irradiationType                           | Type of irradiation (‘Cascade’ for neutron irradiation, ‘FrenkelPair’ for electron irradiation, ‘None’ for no irradiation) |
-| $\color{red}{\textrm{implantScheme}}$     | $\color{red}{\textrm{Toggle between Monte Carlo defect implantation and explicit defect implantation}}$ |
-| cascadeFile                               | The cascade defects file                                     |
-| implantType                               | Where  uniformly implanting defects.                         |
-| implantFile                               | The  data file containing non-uniform implantation profile.  |
-| grainBoundaries                           | Toggle  whether we are going to include the effect of grain boundaries. |
-| pointDefect                               | Toggle  whether point defects are allowed to move only.      |
-| temperature                               | Temperature  (K)                                             |
-| soluteConcentration                       | Initial  content of solute atoms (Cu) in iron.               |
-| $\color{red}{\textrm{numVac}}$            | $\color{red}{\textrm{Initial number of vacancies in the simulation system.}}$ |
-| dpaRate                                   | The  rate of DPA.                                            |
-| totalDPA                                  | Radiation  enhanced factor for Cu.                           |
-| $\color{red}{\textrm{annealTemperature}}$ | $\color{red}{\textrm{Annealing temperature (K).}}$           |
-| $\color{red}{\textrm{annealTime}}$        | $\color{red}{\textrm{Total anneal time.}}$                   |
-| lattice                                   | The  lattice constant (nm).                                  |
-| burgers                                   | Dislocation  loop burgers vector (nm).                       |
-| reactionRadius                            | Reaction  distances (nm).                                    |
-| grainSize                                 | Grain  size (nm).                                            |
-| dislocDensity                             | Dislocation  density ($$nm^{-2}$$).                          |
-| cascadeVolume                             | Volume  of cascade ($$nm^{3}$$) .                            |
-| $\color{red}{\textrm{max3D}}$             | $\color{red}{\textrm{Maximum size for SIA defect to diffuse in 3D.}}$ |
-| $\color{red}{\textrm{numSims}}$           | $\color{red}{\textrm{Number of times to repeat simulation.}}$ |
-| $\color{red}{\textrm{totdatToggle}}$      | $\color{red}{\textrm{Toggle whether the total defects file is output . (The file  contains number of ever defect species, cluster number densities, average  cluster size, average radius of clusters and so on.)}}$ |
-| $\color{red}{\textrm{minSolute}}$         | $\color{red}{\textrm{The minimum size of solute clusters included in the statistics.}}$ |
-| $\color{red}{\textrm{minVoid}}$           | $\color{red}{\textrm{The minimum size of vacancy clusters included in the statistics.}}$ |
-| $\color{red}{\textrm{minLoop}}$           | $\color{red}{\textrm{The minimum size of SIA clusters included in the statistics.}}$ |
-| $\color{red}{\textrm{minVS}}$             | $\color{red}{\textrm{The minimum size of S_Vac clusters included in the statistics.}}$ |
+| Name                                    | Meaning                                                      |
+| --------------------------------------- | ------------------------------------------------------------ |
+| defectFile                              | The defect attributes file                                   |
+| meshFile                                | The mesh file                                                |
+| irradiationType                         | Type of irradiation (‘Cascade’ for neutron irradiation, ‘FrenkelPair’ for electron irradiation, ‘None’ for no irradiation) |
+| $\color{red}\textrm{implantScheme}$     | $\color{red}\textrm{Toggle between Monte Carlo defect implantation and explicit defect implantation}$ |
+| cascadeFile                             | The cascade defects file                                     |
+| implantType                             | Where  uniformly implanting defects.                         |
+| implantFile                             | The  data file containing non-uniform implantation profile.  |
+| grainBoundaries                         | Toggle  whether we are going to include the effect of grain boundaries. |
+| pointDefect                             | Toggle  whether point defects are allowed to move only.      |
+| temperature                             | Temperature  (K)                                             |
+| soluteConcentration                     | Initial  content of solute atoms (Cu) in iron.               |
+| $\color{red}\textrm{numVac}$            | $\color{red}\textrm{Initial number of vacancies in the simulation system.}$ |
+| dpaRate                                 | The  rate of DPA.                                            |
+| totalDPA                                | Radiation  enhanced factor for Cu.                           |
+| $\color{red}\textrm{annealTemperature}$ | $\color{red}\textrm{Annealing temperature (K).}$             |
+| $\color{red}\textrm{annealTime}$        | $\color{red}\textrm{Total anneal time.}$                     |
+| lattice                                 | The  lattice constant (nm).                                  |
+| burgers                                 | Dislocation  loop burgers vector (nm).                       |
+| reactionRadius                          | Reaction  distances (nm).                                    |
+| grainSize                               | Grain  size (nm).                                            |
+| dislocDensity                           | Dislocation  density ($$nm^{-2}$$).                          |
+| cascadeVolume                           | Volume  of cascade ($$nm^{3}$$) .                            |
+| $\color{red}\textrm{max3D}$             | $\color{red}\textrm{Maximum size for SIA defect to diffuse in 3D.}$ |
+| $\color{red}\textrm{numSims}$           | $\color{red}\textrm{Number of times to repeat simulation.}$  |
+| $\color{red}\textrm{totdatToggle}$      | $\color{red}\textrm{Toggle whether the total defects file is output . (The file  contains number of ever defect species, cluster number densities, average  cluster size, average radius of clusters and so on.)}$ |
+| $\color{red}\textrm{minSolute}$         | $\color{red}\textrm{The minimum size of solute clusters included in the statistics.}$ |
+| $\color{red}\textrm{minVoid}$           | $\color{red}\textrm{The minimum size of vacancy clusters included in the statistics.}$ |
+| $\color{red}\textrm{minLoop}$           | $\color{red}\textrm{The minimum size of SIA clusters included in the statistics.}$ |
+| $\color{red}\textrm{minVS}$             | $\color{red}\textrm{The minimum size of S_Vac clusters included in the statistics.}$ |
 
 ------
 
