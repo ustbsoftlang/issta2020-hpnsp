@@ -1,6 +1,6 @@
 # The information of Test Cases and Bugs
 
-For a pdf version, please refer to the file *"The information of Test Cases and Bugs.pdf"*
+For a pdf version, please refer to the file *"the information of Test Cases and Bugs.pdf"*
 
 
 
